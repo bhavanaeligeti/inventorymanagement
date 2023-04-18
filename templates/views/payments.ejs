@@ -116,7 +116,10 @@ body {
                             %>
 
                         <label for="holder"><b>Product Name</b></label>
-                        <input id="holderName" type="text" placeholder="Enter Product Name"  name="cname" value="<%= row.pname %>" required 
+                        <input id="holderName" type="text" placeholder="Enter Product Name"  name="cname" value="<%= row.pname %>" required disabled 
+                            maxlength="20">
+
+                            <input id="holderName" type="hidden" placeholder="Enter Product Name"  name="cname" value="<%= row.pname %>" required 
                             maxlength="20">
                     </div>
                     

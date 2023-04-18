@@ -13,6 +13,9 @@
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
+    <!--==================== UNICONS ====================-->
+	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <!--<title>Dashboard Sidebar Menu</title>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -69,12 +72,12 @@
 
 
                 <ul class="menu-links">
-                    <li class="nav-link">
+                    <!-- <li class="nav-link">
                         <a href="#Dashboard" onclick="dashboard()">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
-                    </li>
+                    </li> -->
 
 
 
@@ -86,45 +89,56 @@
                     </li> -->
 
 
-
-
-
-
-
-                    <li class="nav-link">
-                        <a href="#addproduct" onclick="addproduct()">
-                             <i class='bx bx-list-ul icon'></i>
-                            <span class="text nav-text">Products list</span>
-                        </a>
-                    </li>
-
-
-
-                    <li class="nav-link">
-                        <a href="#account" onclick="account()">
-                            <i class='bx bxs-user-circle icon'></i>
-                            <span class="text nav-text">Account</span>
-                        </a>
-                    </li>
                     <li class="nav-link">
                         <a href="#userList" onclick="userList()">
                             <i class='bx bx-list-plus icon'></i>
                             <span class="text nav-text">Supplier List</span>
                         </a>
                     </li>
+
+                    <li class="nav-link">
+                      <a href="#addcat" onclick="addcat()">
+                        <i class="uil uil-folder-plus icon"></i>
+                          <span class="text nav-text">add category</span>
+                      </a>
+                  </li>
+
+                    <li class="nav-link">
+                      <a href="#category" onclick="category()">
+                        <i class='bx bxs-category-alt icon' ></i>
+                          <span class="text nav-text">category</span>
+                      </a>
+                  </li>
+
+                  <li class="nav-link">
+                    <a href="#addproduct" onclick="addproduct()">
+                         <i class='bx bx-list-ul icon'></i>
+                        <span class="text nav-text">Products list</span>
+                    </a>
+                </li>
+
                     <li class="nav-link">
                         <a href="#stock" onclick="stock()">
-                            <i class='bx bx-bell icon'></i>
+                          <i class='bx bxs-truck icon'></i>
                             <span class="text nav-text">stock</span>
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                      <a href="#category" onclick="category()">
-                          <i class='bx bxs-category-alt icon' ></i>
-                          <span class="text nav-text">category</span>
-                      </a>
+
+
+                  <li class="nav-link">
+                    <a href="#payment" onclick="payment()">
+                        <i class='bx bxs-wallet icon'></i>
+                        <span class="text nav-text">My Payment</span>
+                    </a>
                   </li>
+
+                  <li class="nav-link">
+                    <a href="#account" onclick="account()">
+                      <i class='bx bxs-user-circle icon'></i>
+                        <span class="text nav-text">Account</span>
+                    </a>
+                </li>
 
                 </ul>
             </div>
@@ -158,8 +172,8 @@
           </div>         
           <div class="column">
               <div class="card" style="background: rgb(14, 119, 52);">
-                  <!-- <i class="fa fa-dollar iconStyle" ></i> -->
-                  <i class='bx bx-rupee iconStyle' ></i>
+                  <i class="fa fa-dollar iconStyle" ></i>
+                  <!-- <i class='bx bx-rupee iconStyle' ></i> -->
                  <div>
                      <p>Total Store Value</p>
                      <% var x = 0 %>
@@ -205,7 +219,100 @@
           </div>
 
       </div>
-        
+      
+      <div id="payment" class="collpase">
+        <div class="container">
+          <div class="row">
+              <h1>Product Lists</h1>
+              <br>
+           <table class="table table-striped table-primary">
+            <thead>
+              <tr>
+
+                  <th>Product Name</th>
+                  <th>Product Price</th>
+                  <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+             <% if(pydata.length >0){
+              pydata.forEach(function(row){
+              %>
+              <% if(row.user == loginUser){ %>
+              <tr>
+                
+                  <td> <%= row.cname %></td>
+                  <td> $<%= row.price %></td>
+                  
+                  <td>
+                    <a class="btn btn-primary" href="/invoice">View</a>
+                  </td>
+                  
+              </tr>
+              <% } }) } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+
+      <div id="account" class="collpase">
+        <div class="profileCon" style="margin: 86px; width: max-content;">
+        <div class="profileCon" style="width: max-content;">
+           <div class="profileCard">
+             <br>
+             <% if(users) { %>
+             <div><p><span style="font-size: 20px;"><b>Name : <%= users.name %></b></span></p></div>
+             <div>
+               <p><span style="font-size: 20px;"><b>Email : <%= users.email %></b></span></p>
+             </div>
+             <button><a href="/logout" style="color: white;">SignOut</a></button>
+             <% } %>
+           </div>
+        </div>
+
+     </div>
+     </div>
+
+      <div id="addcat" class="collpase">
+        <div class="container">
+          <div class="row">
+
+              <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                          <div class="panel-title"> Add New Category</div>
+                           </div>  
+                      <div class="panel-body" >
+                          <form action="/add-new-category" id="EmployeeForm" class="form-horizontal" method="post"  role="form">
+
+
+                                <div class="form-group">
+                                  <label for="category" class="col-md-12 ">Category Name</label>
+                                  <div class="col-md-12">
+                                      <input type="text" class="form-control" name="cate" placeholder="Enter Category Name">
+                                  </div>
+                              </div>
+
+
+
+                              <div class="form-group">
+                                  <!-- Button -->                                        
+                                  <div class="col-md-offset-3 col-md-9">
+                                  <input type="submit" name="submit" value="Add Category" class="btn btn-primary">   
+                                  </div>
+                              </div>
+
+                              <p><a href="#">View All Lists</a></p>
+
+                          </form>
+                       </div>
+                  </div>             
+            </div> 
+          </div>
+        </div>
+      </div>
+
         <div id="Dashboard" class="collpase">
             <div style="text-align: center;"> 
               <% if(msg !=''){ %>
@@ -246,6 +353,7 @@
                         <td> <%= row.pname %></td>
                         <td> रु<%= row.price %></td>
                         <td> <%= row.pmdate %></td>
+                        <td> <%= row.pid %></td>
                         <td> <%= row.pxdate %></td>
                         <td>
                           <div class="col-md-4 ">
@@ -254,7 +362,7 @@
                         </td>
                         <td>
                          
-                          <a class="btn btn-primary" href="payments">Buy</a>
+                          <a class="btn btn-primary" href="/buy/edit/<%= row._id %>">Buy</a>
                           <a class="btn btn-danger" style="margin: 2px;" href="/buy/delete/<%= row._id %>">Delete</a>
                           
                         </td>
@@ -478,6 +586,9 @@
             document.getElementById("category").classList.add('collpase');
             document.getElementById("stock").classList.remove('collpase-open');
             document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+
 
         }
 
@@ -496,6 +607,9 @@
             document.getElementById("category").classList.add('collpase');
             document.getElementById("stock").classList.remove('collpase-open');
             document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+
 
         }
 
@@ -515,6 +629,9 @@
             document.getElementById("category").classList.add('collpase');
             document.getElementById("stock").classList.remove('collpase-open');
             document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+
 
 
         }
@@ -533,6 +650,9 @@
             document.getElementById("category").classList.add('collpase');
             document.getElementById("stock").classList.remove('collpase-open');
             document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+
 
         }
         function userList() {
@@ -550,6 +670,9 @@
             document.getElementById("payment").classList.add('collpase');
             document.getElementById("stock").classList.remove('collpase-open');
             document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+
 
         }
         function category() {
@@ -567,6 +690,9 @@
             document.getElementById("userList").classList.add('collpase');
             document.getElementById("stock").classList.remove('collpase-open');
             document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+
 
         }
 
@@ -586,6 +712,25 @@
             document.getElementById("payment").classList.add('collpase');
             document.getElementById("userList").classList.remove('collpase-open');
             document.getElementById("userList").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+        }
+
+        function addcat(){
+            document.getElementById("addcat").classList.add('collpase-open');
+            document.getElementById("addcat").classList.remove('collpase'); 
+            document.getElementById("stock").classList.remove('collpase-open');
+            document.getElementById("stock").classList.add('collpase');
+            document.getElementById("category").classList.remove('collpase-open');
+            document.getElementById("category").classList.remove('collpase-open');
+            document.getElementById("category").classList.add('collpase');
+            document.getElementById("account").classList.remove('collpase-open');
+            document.getElementById("account").classList.add('collpase');
+
+            document.getElementById("payment").classList.add('collpase');
+            document.getElementById("userList").classList.remove('collpase-open');
+            document.getElementById("userList").classList.add('collpase');
+            
         }
 
     </script>
