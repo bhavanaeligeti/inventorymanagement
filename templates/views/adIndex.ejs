@@ -72,23 +72,6 @@
 
 
                 <ul class="menu-links">
-                    <!-- <li class="nav-link">
-                        <a href="#Dashboard" onclick="dashboard()">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li> -->
-
-
-
-                    <!-- <li class="nav-link">
-                        <a href="#payment" onclick="payment()">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Payment</span>
-                        </a>
-                    </li> -->
-
-
                     <li class="nav-link">
                         <a href="#userList" onclick="userList()">
                             <i class='bx bx-list-plus icon'></i>
@@ -256,7 +239,7 @@
       </div>
       </div>
 
-      <div id="account" class="collpase">
+      <!-- <div id="account" class="collpase">
         <div class="profileCon" style="margin: 86px; width: max-content;">
         <div class="profileCon" style="width: max-content;">
            <div class="profileCard">
@@ -272,7 +255,7 @@
         </div>
 
      </div>
-     </div>
+     </div> -->
 
       <div id="addcat" class="collpase">
         <div class="container">
@@ -314,13 +297,7 @@
       </div>
 
         <div id="Dashboard" class="collpase">
-            <div style="text-align: center;"> 
-              <% if(msg !=''){ %>
-                <div id="signupalert"  class="alert alert-danger">
-                   <p style="text-align: center;color:red;"><%= msg %></p>
-                </div>
-                    <% } %>
-            </div>
+            
         </div>
 
         <div id="addproduct" class="collpase">
@@ -586,17 +563,34 @@
             document.getElementById("stock").classList.add('collpase');
             document.getElementById("addcat").classList.remove('collpase-open');
             document.getElementById("addcat").classList.add('collpase');
-
-
         }
 
-        function payment() {
-            document.getElementById("payment").classList.add('collpase-open');
-            document.getElementById("payment").classList.remove('collpase');
-            document.getElementById("addproduct").classList.remove('collpase-open');
-            document.getElementById("addproduct").classList.add('collpase');
+        function userList() {
             document.getElementById("Dashboard").classList.remove('collpase-open');
             document.getElementById("Dashboard").classList.add('collpase');
+            document.getElementById("addproduct").classList.remove('collpase-open');
+            document.getElementById("addproduct").classList.add('collpase');
+            document.getElementById("payment").classList.remove('collpase-open');
+            document.getElementById("payment").classList.add('collpase');
+            document.getElementById("account").classList.remove('collpase-open');
+            document.getElementById("account").classList.add('collpase');
+            document.getElementById("userList").classList.add('collpase-open');
+            document.getElementById("userList").classList.remove('collpase');
+            document.getElementById("category").classList.remove('collpase-open');
+            document.getElementById("category").classList.add('collpase');
+            document.getElementById("stock").classList.remove('collpase-open');
+            document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+        }
+
+        function addcat() {
+            document.getElementById("Dashboard").classList.remove('collpase-open');
+            document.getElementById("Dashboard").classList.add('collpase');
+            document.getElementById("addproduct").classList.remove('collpase-open');
+            document.getElementById("addproduct").classList.add('collpase');
+            document.getElementById("payment").classList.remove('collpase-open');
+            document.getElementById("payment").classList.add('collpase');
             document.getElementById("account").classList.remove('collpase-open');
             document.getElementById("account").classList.add('collpase');
             document.getElementById("userList").classList.remove('collpase-open');
@@ -605,20 +599,36 @@
             document.getElementById("category").classList.add('collpase');
             document.getElementById("stock").classList.remove('collpase-open');
             document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.add('collpase-open');
+            document.getElementById("addcat").classList.remove('collpase');
+        }
+
+        function category() {
+            document.getElementById("Dashboard").classList.remove('collpase-open');
+            document.getElementById("Dashboard").classList.add('collpase');
+            document.getElementById("addproduct").classList.remove('collpase-open');
+            document.getElementById("addproduct").classList.add('collpase');
+            document.getElementById("payment").classList.remove('collpase-open');
+            document.getElementById("payment").classList.add('collpase');
+            document.getElementById("account").classList.remove('collpase-open');
+            document.getElementById("account").classList.add('collpase');
+            document.getElementById("userList").classList.remove('collpase-open');
+            document.getElementById("userList").classList.add('collpase');
+            document.getElementById("category").classList.add('collpase-open');
+            document.getElementById("category").classList.remove('collpase');
+            document.getElementById("stock").classList.remove('collpase-open');
+            document.getElementById("stock").classList.add('collpase');
             document.getElementById("addcat").classList.remove('collpase-open');
             document.getElementById("addcat").classList.add('collpase');
-
-
         }
 
         function addproduct() {
-
+            document.getElementById("Dashboard").classList.remove('collpase-open');
+            document.getElementById("Dashboard").classList.add('collpase');
             document.getElementById("addproduct").classList.add('collpase-open');
             document.getElementById("addproduct").classList.remove('collpase');
             document.getElementById("payment").classList.remove('collpase-open');
             document.getElementById("payment").classList.add('collpase');
-            document.getElementById("Dashboard").classList.remove('collpase-open');
-            document.getElementById("Dashboard").classList.add('collpase');
             document.getElementById("account").classList.remove('collpase-open');
             document.getElementById("account").classList.add('collpase');
             document.getElementById("userList").classList.remove('collpase-open');
@@ -629,107 +639,68 @@
             document.getElementById("stock").classList.add('collpase');
             document.getElementById("addcat").classList.remove('collpase-open');
             document.getElementById("addcat").classList.add('collpase');
-
-
-
-        }
-        function account() {
-            document.getElementById("account").classList.add('collpase-open');
-            document.getElementById("account").classList.remove('collpase');
-            document.getElementById("addproduct").classList.remove('collpase-open');
-            document.getElementById("addproduct").classList.add('collpase');
-            document.getElementById("Dashboard").classList.remove('collpase-open');
-            document.getElementById("Dashboard").classList.add('collpase');
-            document.getElementById("payment").classList.remove('collpase-open');
-            document.getElementById("payment").classList.add('collpase');
-            document.getElementById("userList").classList.remove('collpase-open');
-            document.getElementById("userList").classList.add('collpase');
-            document.getElementById("category").classList.remove('collpase-open');
-            document.getElementById("category").classList.add('collpase');
-            document.getElementById("stock").classList.remove('collpase-open');
-            document.getElementById("stock").classList.add('collpase');
-            document.getElementById("addcat").classList.remove('collpase-open');
-            document.getElementById("addcat").classList.add('collpase');
-
-
-        }
-        function userList() {
-            document.getElementById("userList").classList.add('collpase-open');
-            document.getElementById("userList").classList.remove('collpase');
-            document.getElementById("account").classList.remove('collpase-open');
-            document.getElementById("account").classList.add('collpase');
-            document.getElementById("category").classList.remove('collpase-open');
-            document.getElementById("category").classList.add('collpase');
-            document.getElementById("addproduct").classList.remove('collpase-open');
-            document.getElementById("addproduct").classList.add('collpase');
-            document.getElementById("Dashboard").classList.remove('collpase-open');
-            document.getElementById("Dashboard").classList.add('collpase');
-            document.getElementById("payment").classList.remove('collpase-open');
-            document.getElementById("payment").classList.add('collpase');
-            document.getElementById("stock").classList.remove('collpase-open');
-            document.getElementById("stock").classList.add('collpase');
-            document.getElementById("addcat").classList.remove('collpase-open');
-            document.getElementById("addcat").classList.add('collpase');
-
-
-        }
-        function category() {
-            document.getElementById("category").classList.add('collpase-open');
-            document.getElementById("category").classList.remove('collpase');
-            document.getElementById("account").classList.remove('collpase-open');
-            document.getElementById("account").classList.add('collpase');
-            document.getElementById("addproduct").classList.remove('collpase-open');
-            document.getElementById("addproduct").classList.add('collpase');
-            document.getElementById("Dashboard").classList.remove('collpase-open');
-            document.getElementById("Dashboard").classList.add('collpase');
-            document.getElementById("payment").classList.remove('collpase-open');
-            document.getElementById("payment").classList.add('collpase');
-            document.getElementById("userList").classList.remove('collpase-open');
-            document.getElementById("userList").classList.add('collpase');
-            document.getElementById("stock").classList.remove('collpase-open');
-            document.getElementById("stock").classList.add('collpase');
-            document.getElementById("addcat").classList.remove('collpase-open');
-            document.getElementById("addcat").classList.add('collpase');
-
-
         }
 
         function stock() {
-          document.getElementById("stock").classList.add('collpase-open');
-            document.getElementById("stock").classList.remove('collpase');
-
-          document.getElementById("category").classList.remove('collpase-open');
-            document.getElementById("category").classList.add('collpase');
-            document.getElementById("account").classList.remove('collpase-open');
-            document.getElementById("account").classList.add('collpase');
-            document.getElementById("addproduct").classList.remove('collpase-open');
-            document.getElementById("addproduct").classList.add('collpase');
             document.getElementById("Dashboard").classList.remove('collpase-open');
             document.getElementById("Dashboard").classList.add('collpase');
+            document.getElementById("addproduct").classList.remove('collpase-open');
+            document.getElementById("addproduct").classList.add('collpase');
             document.getElementById("payment").classList.remove('collpase-open');
             document.getElementById("payment").classList.add('collpase');
+            document.getElementById("account").classList.remove('collpase-open');
+            document.getElementById("account").classList.add('collpase');
             document.getElementById("userList").classList.remove('collpase-open');
             document.getElementById("userList").classList.add('collpase');
+            document.getElementById("category").classList.remove('collpase-open');
+            document.getElementById("category").classList.add('collpase');
+            document.getElementById("stock").classList.add('collpase-open');
+            document.getElementById("stock").classList.remove('collpase');
             document.getElementById("addcat").classList.remove('collpase-open');
             document.getElementById("addcat").classList.add('collpase');
         }
 
-        function addcat(){
-            document.getElementById("addcat").classList.add('collpase-open');
-            document.getElementById("addcat").classList.remove('collpase'); 
-            document.getElementById("stock").classList.remove('collpase-open');
-            document.getElementById("stock").classList.add('collpase');
-            document.getElementById("category").classList.remove('collpase-open');
-            document.getElementById("category").classList.remove('collpase-open');
-            document.getElementById("category").classList.add('collpase');
+        function payment() {
+            document.getElementById("Dashboard").classList.remove('collpase-open');
+            document.getElementById("Dashboard").classList.add('collpase');
+            document.getElementById("addproduct").classList.remove('collpase-open');
+            document.getElementById("addproduct").classList.add('collpase');
+            document.getElementById("payment").classList.add('collpase-open');
+            document.getElementById("payment").classList.remove('collpase');
             document.getElementById("account").classList.remove('collpase-open');
             document.getElementById("account").classList.add('collpase');
-
-            document.getElementById("payment").classList.add('collpase');
             document.getElementById("userList").classList.remove('collpase-open');
             document.getElementById("userList").classList.add('collpase');
-            
+            document.getElementById("category").classList.remove('collpase-open');
+            document.getElementById("category").classList.add('collpase');
+            document.getElementById("stock").classList.remove('collpase-open');
+            document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
         }
+
+        function account() {
+            document.getElementById("Dashboard").classList.remove('collpase-open');
+            document.getElementById("Dashboard").classList.add('collpase');
+            document.getElementById("addproduct").classList.remove('collpase-open');
+            document.getElementById("addproduct").classList.add('collpase');
+            document.getElementById("payment").classList.remove('collpase-open');
+            document.getElementById("payment").classList.add('collpase');
+            document.getElementById("account").classList.add('collpase-open');
+            document.getElementById("account").classList.remove('collpase');
+            document.getElementById("userList").classList.remove('collpase-open');
+            document.getElementById("userList").classList.add('collpase');
+            document.getElementById("category").classList.remove('collpase-open');
+            document.getElementById("category").classList.add('collpase');
+            document.getElementById("stock").classList.remove('collpase-open');
+            document.getElementById("stock").classList.add('collpase');
+            document.getElementById("addcat").classList.remove('collpase-open');
+            document.getElementById("addcat").classList.add('collpase');
+        }
+
+        
+
+        
 
     </script>
 
